@@ -1,0 +1,1 @@
+¬shader_datas‘‚¤name¶motion_blur_veloc_pass¨contexts‘Š¤name¶motion_blur_veloc_pass­texture_units“¤name¨gbuffer0¤name¦sveloc¤name£tex°vertex_structure‘‚¤size¤name£pos¯fragment_shader»motion_blur_veloc_pass.frag©cull_mode¤none±color_write_alphaÂ­vertex_shader»motion_blur_veloc_pass.vert«depth_writeÂ¬compare_mode¦always©constants

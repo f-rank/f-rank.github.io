@@ -1,0 +1,47 @@
+#version 100
+#extension GL_EXT_draw_buffers : require
+precision mediump float;
+precision mediump int;
+
+varying vec3 wnormal;
+varying vec4 wvpposition;
+varying vec4 prevwvpposition;
+
+vec2 octahedronWrap(vec2 v)
+{
+    return (vec2(1.0) - abs(v.yx)) * vec2((v.x >= 0.0) ? 1.0 : -1.0, (v.y >= 0.0) ? 1.0 : -1.0);
+}
+
+float packFloat(float f1, float f2)
+{
+    float index = floor(f1 * 100.0);
+    float alpha = clamp(f2, 0.0, 0.999000012874603271484375);
+    return index + alpha;
+}
+
+void main()
+{
+    vec3 n = normalize(wnormal);
+    vec3 basecol = vec3(0.1355455219745635986328125, 0.2151840031147003173828125, 1.0);
+    float roughness = 0.39999997615814208984375;
+    float metallic = 1.0;
+    float occlusion = 1.0;
+    n /= vec3((abs(n.x) + abs(n.y)) + abs(n.z));
+    vec2 _82;
+    if (n.z >= 0.0)
+    {
+        _82 = n.xy;
+    }
+    else
+    {
+        _82 = octahedronWrap(n.xy);
+    }
+    n = vec3(_82.x, _82.y, n.z);
+    gl_FragData[0] = vec4(n.xy, packFloat(metallic, roughness), 1.0 - gl_FragCoord.z);
+    gl_FragData[1] = vec4(basecol, occlusion);
+    vec2 posa = ((wvpposition.xy / vec2(wvpposition.w)) * 0.5) + vec2(0.5);
+    vec2 posb = ((prevwvpposition.xy / vec2(prevwvpposition.w)) * 0.5) + vec2(0.5);
+    vec2 _157 = vec2(posa - posb);
+    gl_FragData[2] = vec4(_157.x, _157.y, gl_FragData[2].z, gl_FragData[2].w);
+}
+

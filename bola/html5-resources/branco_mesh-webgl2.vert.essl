@@ -1,0 +1,21 @@
+#version 300 es
+
+uniform mediump mat3 N;
+uniform mediump mat4 WVP;
+uniform mediump mat4 prevWVP;
+
+in mediump vec3 pos;
+out mediump vec3 wnormal;
+in mediump vec3 nor;
+out mediump vec4 wvpposition;
+out mediump vec4 prevwvpposition;
+
+void main()
+{
+    mediump vec4 spos = vec4(pos, 1.0);
+    wnormal = normalize(N * nor);
+    gl_Position = WVP * spos;
+    wvpposition = gl_Position;
+    prevwvpposition = prevWVP * spos;
+}
+

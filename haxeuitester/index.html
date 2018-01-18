@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	
+	<title> </title>
+	
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	
+	<link rel="shortcut icon" type="image/png" href="./favicon.png">
+	
+	
+	<script type="text/javascript" src="./lib/howler.min.js"></script>
+	<script type="text/javascript" src="./lib/pako.min.js"></script>
+	<script type="text/javascript" src="./lib/FileSaver.min.js"></script>
+	<script type="text/javascript" src="./haxeuitest2.js"></script>
+	
+	<script>
+		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, false);
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+	
+	<style>
+		html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+		#openfl-content { background: #000000; width: 1280px; height: 720px; }
+		@font-face {
+			font-family: 'Roboto';
+			src: url('fonts/Roboto-Regular.eot');
+			src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+			url('fonts/Roboto-Regular.svg#my-font-family') format('svg'),
+			url('fonts/Roboto-Regular.woff') format('woff'),
+			url('fonts/Roboto-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Roboto';
+			src: url('fonts/Roboto-Regular.eot');
+			src: url('fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+			url('fonts/Roboto-Regular.svg#my-font-family') format('svg'),
+			url('fonts/Roboto-Regular.woff') format('woff'),
+			url('fonts/Roboto-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}		@font-face {
+			font-family: 'The Bold Font';
+			src: url('fonts/theboldfont.eot');
+			src: url('fonts/theboldfont.eot?#iefix') format('embedded-opentype'),
+			url('fonts/theboldfont.svg#my-font-family') format('svg'),
+			url('fonts/theboldfont.woff') format('woff'),
+			url('fonts/theboldfont.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+	</style>
+	
+</head>
+<body>
+	
+	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
+	
+	<div id="openfl-content"></div>
+	
+	<script type="text/javascript">
+		lime.embed ("haxeuitest2", "openfl-content", 1280, 720, { parameters: {} });
+	</script>
+	
+</body>
+</html>

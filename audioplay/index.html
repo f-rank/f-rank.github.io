@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<audio id="audio1"  controls="controls">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+var time = new Date();
+var timex = time.getSeconds();
+myAudio=document.getElementById("audio1");
+
+window.onload = function () {
+  myAudio.play();
+  myAudio.currentTime=22;
+  }
+
+function setCurTime() { 
+  myAudio.currentTime=timex;
+  myAudio.play();
+  } 
+</script> 
+</body> 
+</html>

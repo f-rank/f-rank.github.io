@@ -1,1 +1,1 @@
-VR ready armory3D compilation
+VR ready Armory3D compilation
